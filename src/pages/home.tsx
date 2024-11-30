@@ -3,6 +3,7 @@ import ExpenseClass from "../model/ExpenseClass"
 import BackendConnection from "../database/BackendConnection"
 import ExpenseComponents from "../components/ExpensesComponent"
 import redirect from "../utils/redirect"
+import css from "../styles/pages/home.module.css"
 
 function Home() {
     const [expenses, setExpenses] = useState<ExpenseClass[]>([])
@@ -18,10 +19,13 @@ function Home() {
     return (
         <main>
             <h1>Hello world</h1>
-            <button onClick={() => redirect("/cadastro")}>Criar Despeza</button>
+            <button className={css.button} onClick={() => redirect("/cadastro")}>Criar Despeza</button>
             {expenses.length > 0 ? 
                 expenses.map(expense => <ExpenseComponents key={expense._id} expense={expense} />) : 
-                <p>Sem itens</p>
+                <div className={css.semItem}>
+                    <h2>Não há despezas</h2>
+                    <p>Clique no botão acima para criar uma.</p>
+                </div>
             }
         </main>
     )
