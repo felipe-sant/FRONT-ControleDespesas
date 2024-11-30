@@ -22,6 +22,7 @@ export default function CadastroPage() {
         }
         const response = await BackendConnection.postExpense(expense)
         alert(response.message)
+        redirect("/")
     }
 
     return (
