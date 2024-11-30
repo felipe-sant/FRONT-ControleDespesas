@@ -1,11 +1,12 @@
-import ExpenseType from "../types/ExpensesType";
-import MessageType from "../types/MessageType";
-
-async function get(url: string, body?: {_id: string | undefined}): Promise<ExpenseType[] | MessageType> {
-    if (body) url = `${url}/${body._id}`;
-    const response = await fetch(url);
-    const data = await response.json() as ExpenseType[] | MessageType; 
-    return data;
+async function get(url: string, id?: string) {
+    if (id === undefined) id = ""
+    const response = await fetch(`${url}/${id}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+    return response.json()
 }
 
-export default get;
+export default get

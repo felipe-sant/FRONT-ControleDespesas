@@ -1,14 +1,11 @@
-import ExpenseType from "../types/ExpensesType";
-import MessageType from "../types/MessageType";
-
-async function del(url: string, body: ExpenseType): Promise<MessageType> {
-    url = `${url}/${body._id}`;
-    const response = await fetch(url, {
+async function del(url: string, id: string) {
+    const response = await fetch(`${url}/${id}`, {
         method: 'DELETE',
-        headers: { 'Content-Type': 'application/json' }
-    });
-    const data = await response.json() as MessageType;
-    return data;
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+    return response.json()
 }
 
-export default del;
+export default del

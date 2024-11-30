@@ -1,15 +1,12 @@
 import URL from "../constants/URL"
+import BackendConnection from "../database/BackendConnection"
+import ExpenseClass from "../model/ExpenseClass"
+import ExpenseType from "../types/ExpensesType"
 
 function Home() {
-    async function testar() {
-        const teste = URL.ExpensiveURL()
-        console.log(teste)
-    } 
-
     return (
         <main>
             <h1>Hello world</h1>
-            <button onClick={testar}>tstar</button>
         </main>
     )
 }

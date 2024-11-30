@@ -1,15 +1,12 @@
-import ExpenseType from "../types/ExpensesType";
-import MessageType from "../types/MessageType";
-
-async function put(url: string, body: ExpenseType): Promise<MessageType> {
-    url = `${url}/${body._id}`;
-    const response = await fetch(url, {
+async function put(url: string, id: string, body: any) {
+    const response = await fetch(`${url}/${id}`, {
         method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body)
-    });
-    const data = await response.json();
-    return data;
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(body),
+    })
+    return response.json()
 }
 
-export default put;
+export default put
