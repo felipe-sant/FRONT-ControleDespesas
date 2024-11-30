@@ -1,0 +1,60 @@
+.form {
+    width: 400px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.form .input {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.input label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.input textarea {
+    resize: none;
+}
+
+.input textarea, .input input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.input.required label::after {
+    content: '*';
+    color: #f00;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.buttons button.cancel {
+    background-color: transparent;
+    color: #f00;
+}
+
+.buttons button.send {
+    background-color: #00f;
+    color: #fff;
+}
